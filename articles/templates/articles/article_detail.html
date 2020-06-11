@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="article-detail">
+  <div class="article">
+    <img src="{{article.thumb.url}}" />
+    <h2>{{article.title}}</h2>
+    <p>{{article.date}}</p>
+    <p>{{article.body}}</<p>
+
+    <br></br>
+    <hr>
+    <br/>
+    <form class="" action="{% url 'articles:like' %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
