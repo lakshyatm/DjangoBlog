@@ -1,1 +1,1 @@
-web: gununicorn djangonautic.wsgi 
+web: gunicorn djangonautic.wsgi 
