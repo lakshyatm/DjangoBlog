@@ -13,15 +13,15 @@
                 <ul>
                     {% if user.is_authenticated %}
                     <li>
-                        <form class="logout-link" action="{% url 'accounts/logout' %}" method="post">
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
                     </li>
                     <li><a href="{% url 'articles/create' %}" class="highlight">New Article</a></li>
                     {% else %}
-                    <li><a href="{% url 'accounts/login' %}">Login</a></li>
-                    <li><a href="{% url 'accounts/signup' %}">Signup</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
                     {% endif %}
                 </ul>
             </nav>
