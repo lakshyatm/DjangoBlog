@@ -9,12 +9,12 @@ from django.contrib.auth.models import User
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'article_list.html' ,{'articles':articles})
+    return render(request, 'templates/article_list.html' ,{'articles':articles})
 
 def article_detail(request,slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug=slug)
-    return render(request, 'article_detail.html',{'article':article})
+    return render(request, 'templates/article_detail.html',{'article':article})
 
 @login_required(login_url="/accounts/login/")
 def article_create(request):
@@ -27,7 +27,7 @@ def article_create(request):
             return redirect('articles:list')
     else:
         form = forms.CreateArticle()
-    return render(request,'article_create.html',{'form':form})
+    return render(request,'templates/article_create.html',{'form':form})
 
 def LikeView(request):
     post = get_object_or_404(User, id=request.POST.get('post_id'))
