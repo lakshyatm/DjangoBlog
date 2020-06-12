@@ -9,12 +9,12 @@ from django.contrib.auth.models import User
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'templates/article_list.html' ,{'articles':articles})
+    return render(request, 'article_list.html' ,{'articles':articles})
 
 def article_detail(request,slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug=slug)
-    return render(request, 'templates/article_detail.html',{'article':article})
+    return render(request, 'article_detail.html',{'article':article})
 
 @login_required(login_url="/accounts/login/")
 def article_create(request):
