@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'article_list.html' ,{'articles':articles})
+    return HttpResponse("HELLO")
 
 def article_detail(request,slug):
     # return HttpResponse(slug)
