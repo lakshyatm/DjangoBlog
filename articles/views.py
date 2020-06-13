@@ -3,8 +3,6 @@ from .models import Article
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
-from . import article_list.html
-from . import article_create.html
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
