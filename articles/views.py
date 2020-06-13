@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return HttpResponse("<html><body>    <h1>Article List</<h1>
+    return "<html><body>    <h1>Article List</<h1>
     <div class="articles">
       {% for article in articles %}
         <div class="article">
@@ -20,7 +20,7 @@ def article_list(request):
 
         </div>
       {% endfor %}
-    </div></body></html>")
+    </div></body></html>"
 
 def article_detail(request,slug):
     # return HttpResponse(slug)
