@@ -9,7 +9,18 @@ from django.contrib.auth.models import User
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
-    return HttpResponse("HELLO")
+    return HttpResponse("<html><body>    <h1>Article List</<h1>
+    <div class="articles">
+      {% for article in articles %}
+        <div class="article">
+          <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h2>
+          <p>{{article.snippet}}</p>
+          <p>{{article.date}}</p>
+          <p class="author">added by {{article.author.username}}</p>
+
+        </div>
+      {% endfor %}
+    </div></body></html>")
 
 def article_detail(request,slug):
     # return HttpResponse(slug)
