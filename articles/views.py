@@ -34,12 +34,4 @@ def LikeView(request):
     post.likes.add(request.user)
     return HttpResponseRedirect(reverse('article_detail',args=[str(pk)]))
 
-def post_detail(request, id, slug):
-    post = get_object_or_404(Article, id=id, slug=slug)
-    comments = Comment.objects.filter(post=post).order_by('-id')
 
-    context = {
-        'post' : post,
-        'comments' : comments,
-    }
-    return render(request, 'articles/article_detail', context)
